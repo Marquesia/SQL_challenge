@@ -20,30 +20,27 @@ select
 	e.last_name,
 	e.first_name,
 	d.dept_name as department_name
-from dept_emp as de
+from department_employee as de
 join employees as e
 	on de.emp_no = e.emp_no
 join departments as d
-	on de.dept_no = d.dept_no
-
+	on de.dept_no = d.dept_no;
+	
 --5
-select
-	first_name,
-	last_name,
-	sex
+SELECT emp_no, first_name, last_name, sex
 from employees
 where 	
 	first_name = 'Hercules' and 
-	last_name LIKE 'B%
+	last_name LIKE 'B%' ;
 
 --6
 select e.emp_no,last_name,first_name
-from employees as e, departments as d, dept_emp as x
+from employees as e, departments as d, department_employee as x
 where d.dept_name = 'Sales' and e.emp_no = x.emp_no and x.dept_no = d.dept_no;
 
 --7
 select e.emp_no,last_name,first_name,dept_name
-from departments as d, employees as e, dept_emp as x
+from departments as d, employees as e, department_employee as x
 where (d.dept_name = 'Sales' or d.dept_name = 'Development') and e.emp_no = x.emp_no and x.dept_no = d.dept_no;
 
 --8
